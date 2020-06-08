@@ -1,7 +1,7 @@
 source("fars_functions.R")
 
 test_that("fars_read", {
-  roots <- ProjectRGGit::fars_read(filename = "accident_2013.csv.bz2")
+  roots <- fars_read(filename = "accident_2013.csv.bz2")
   expect_that( roots, is_a("character") )
 })
 
