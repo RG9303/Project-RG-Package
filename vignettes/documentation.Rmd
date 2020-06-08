@@ -1,0 +1,100 @@
+---
+title: "Documentation how to create a map R"
+author: "Rubi Gutierrez"
+date: "2020-06-08"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Documentation how to create a map R}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+>> **---  Project RMarkdown  ---**
+
+### Functions description:
+
+1. **fars_read:** Read a csv file when it exists and forwards the argument as a data frame with format csv. For this function you need install packages like dplyr and readr before this or it may result in an error. You can make some examples if you compute it as the next structure: 
+*fars_read(filename = x)*.
+```{r, include = TRUE}
+fars_read <- function(filename) {
+  if(!file.exists(filename))
+    stop("file '", filename, "' does not exist")
+  data <- suppressMessages({
+    readr::read_csv(filename, progress = FALSE)
+  })
+  dplyr::tbl_df(data)
+}
+```
+
+2. **make_filename:** transform a variable as a integer and print a character vector containing a formatted combination of text and variable value and return a character vector containing a formatted combination of text and variable value. You need to enter a number. An examples is:
+*make_filename(2014)*.
+```{r, include = TRUE}
+make_filename <- function(year) {
+  year <- as.integer(year)
+  sprintf("accident_%d.csv.bz2", year)
+}
+```
+
+3. **fars_read_years:** save the name of a specific data base according to a year, read the ddatabase and transmute it drops existing variables as year. It will be used when it generate the name of a file with the function \code{fars_read}. if the year is in the set: 2013, 2014 or 2015, it will transmute a database in a new data frame depending on a specific month. Otherwise it will print a warning. An example is:
+*fars_read_years(2014)*.
+```{r, include = TRUE}
+fars_read_years <- function(years) {
+  lapply(years, function(year) {
+    file <- make_filename(year)
+    tryCatch({
+      dat <- fars_read(file)
+      dplyr::mutate(dat, year = year) %>%
+        dplyr::select(MONTH, year)
+    }, error = function(e) {
+      warning("invalid year: ", year)
+      return(NULL)
+    })
+  })
+}
+```
+
+4. **fars_summarize_years:** transmute the data frame by group, summarize and spread a key-value pair across the variables year and n. It returns a data frame by group of year and month, and summarize by count. It will print the head of the database. An example is:
+*fars_summarize_years(2014)*.
+```{r, include = TRUE}
+fars_summarize_years <- function(years) {
+  dat_list <- fars_read_years(years)
+  dplyr::bind_rows(dat_list) %>%
+    dplyr::group_by(year, MONTH) %>%
+    dplyr::summarize(n = n()) %>%
+    tidyr::spread(year, n)
+}
+```
+
+5. **fars_map_state:** transform the principal database and add conditionals for some variables. Plot a map with a specific lat and long. It returns if number of a state is unique and it is contained in the variable STATE of the data it will make a data frame with this filter, with conditionals to transform NAs in the variables LONGITUD AND LATITUDE and print a map with this location. Otherwise print a message "no accidents to plot" and return an invisible object. An example is:
+*fars_map_state(19, 2014)*.
+```{r, include = TRUE}
+fars_map_state <- function(state.num, year) {
+  filename <- make_filename(year)
+  data <- fars_read(filename)
+  state.num <- as.integer(state.num)
+  
+  if(!(state.num %in% unique(data$STATE)))
+    stop("invalid STATE number: ", state.num)
+  data.sub <- dplyr::filter(data, STATE == state.num)
+  if(nrow(data.sub) == 0L) {
+    message("no accidents to plot")
+    return(invisible(NULL))
+  }
+  is.na(data.sub$LONGITUD) <- data.sub$LONGITUD > 900
+  is.na(data.sub$LATITUDE) <- data.sub$LATITUDE > 90
+  with(data.sub, {
+    maps::map("state", ylim = range(LATITUDE, na.rm = TRUE),
+              xlim = range(LONGITUD, na.rm = TRUE))
+    graphics::points(LONGITUD, LATITUDE, pch = 46)
+  })
+}
+```
+
+
