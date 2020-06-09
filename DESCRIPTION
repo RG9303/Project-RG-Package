@@ -1,29 +1,16 @@
 Package: ProjectRGGit
-Title: What the Package Does (One Line, Title Case)
+Title: This create a map with a specific location
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Rubi",
+           family = "G",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "rubiselaf15@gmail.com")
+Description: This package is the coursework for R Coursera
+    Course: Building R Package.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to
     pick a license
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
-Suggests: 
-    rmarkdown,
-    testthat
-VignetteBuilder: knitr
-Depends: 
-    R (>= 2.10)
-Imports: 
-    ProjectRGGit,
-    dplyr (>= 0.8.3),
-    maps (>= 3.3.0),
-    knitr (>= 1.26),
-    readr (>= 1.3.1),
-    tidyr (>= 1.0.0)
