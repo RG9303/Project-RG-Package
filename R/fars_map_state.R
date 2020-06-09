@@ -1,5 +1,3 @@
-detach("package:stats", unload = T)
-
 #' @title fars_map_state
 #' @description The function \code{fars_map_state} transform the principal database and add
 #' conditionals for some variables. Plot a map with a specific lat and long.
@@ -10,7 +8,7 @@ detach("package:stats", unload = T)
 #' variables LONGITUD AND LATITUDE and print a map with this location. Otherwise print a
 #' message "no accidents to plot" and return an invisible object.
 #' @details you need to install the package "map" and specify a number of a state.
-#' @importFrom dplyr filter
+#' @import dplyr
 #' @importFrom maps map
 #' @importFrom graphics points
 #' @examples fars_map_state(19, 2014)

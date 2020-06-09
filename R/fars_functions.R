@@ -6,8 +6,8 @@
 #' @return if file exists, this function read the file and return a database as a data frame. If the extension
 #' is diferent to csv, it can not read the file.
 #' @details you need install packages like dplyr and readr before this or it may result in an error
+#' @import dplyr
 #' @importFrom readr read_csv
-#' @importFrom dplyr tbl_df
 #' @examples fars_read(filename = accident_2013.csv.bz2)
 #' @export
 fars_read <- function(filename) {
@@ -43,7 +43,7 @@ make_filename <- function(year) {
 #' on a specific month. Otherwise it will print a warning.
 #' @details you need enter a number as a year contained in the set: 2013, 2014 or 2015 or it will return a warning
 #' as a message.
-#' @importFrom dplyr mutate select
+#' @import dplyr
 #' @examples fars_read_years(2014)
 #' @export
 fars_read_years <- function(years) {
@@ -67,7 +67,7 @@ fars_read_years <- function(years) {
 #' @param years as a variable to read the other functions and transmute the data frame.
 #' @return a data frame by group of year and month, and summarize by count. It will print the head of the database.
 #' @details you need install the library tidyr and conserve the format of the variables.
-#' @importFrom dplyr bind_rows group_by summarize
+#' @import dplyr
 #' @importFrom tidyr spread
 #' @examples fars_summarize_years(2014)
 #' @export
@@ -90,7 +90,7 @@ fars_summarize_years <- function(years) {
 #' variables LONGITUD AND LATITUDE and print a map with this location. Otherwise print a
 #' message "no accidents to plot" and return an invisible object.
 #' @details you need to install the package "map" and specify a number of a state.
-#' @importFrom dplyr filter
+#' @import dplyr
 #' @importFrom maps map
 #' @importFrom graphics points
 #' @examples fars_map_state(19, 2014)

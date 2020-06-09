@@ -4,7 +4,6 @@
 #' @param years as a variable to read the other functions and transmute the data frame.
 #' @return a data frame by group of year and month, and summarize by count. It will print the head of the database.
 #' @details you need install the library tidyr and conserve the format of the variables.
-#' @importFrom dplyr bind_rows group_by summarize
 #' @importFrom tidyr spread
 #' @examples fars_summarize_years(2014)
 #' @export
