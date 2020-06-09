@@ -1,4 +1,5 @@
 source("fars_functions.R")
+library(dplyr)
 
 test_that("fars_read", {
   roots <- fars_read(filename = "accident_2013.csv.bz2")
