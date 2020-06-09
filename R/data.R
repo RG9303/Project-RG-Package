@@ -59,8 +59,8 @@
 #'  \item{FATALS}{A value between 1 and 8.}
 #'  \item{DRUNK_DR}{A value between 0 and 4.}
 #' }
-#' @examples
-#' \dontrun{
-#'  accident_2013-csv-bz2
-#' }
-"accident_2013-csv-bz2"
+##
+"accident_2013.csv.bz2"
+"accident_2014.csv.bz2"
+"accident_2015.csv.bz2"
+

@@ -1,5 +1,5 @@
 #' There functions used a database to create maps according a specific location.
-#' 
+#'
 #' @title fars_read
 #' @description The function \code{fars_read} read a csv file if it exists and forwards the argument a data frame.
 #' @param filename to enter a database with format csv.
@@ -8,7 +8,7 @@
 #' @details you need install packages like dplyr and readr before this or it may result in an error
 #' @importFrom readr read_csv
 #' @importFrom dplyr tbl_df
-#' @example fars_read(filename = x)
+#' @examples fars_read(filename = accident_2013.csv.bz2)
 #' @export
 fars_read <- function(filename) {
   if(!file.exists(filename))
@@ -26,7 +26,6 @@ fars_read <- function(filename) {
 #' @param year as a variable to tranform it in an integer value.
 #' @return a character vector containing a formatted combination of text and variable value.
 #' @details you need enter a number or it return a NA.
-#' @importFrom base as.integer sprintf
 #' @examples make_filename(2014)
 #' @export
 make_filename <- function(year) {
@@ -63,12 +62,12 @@ fars_read_years <- function(years) {
 
 
 #' @title fars_summarize_years
-#' @description The function \code{fars_summarize_years} transmute the data frame by group, summarize and 
+#' @description The function \code{fars_summarize_years} transmute the data frame by group, summarize and
 #' spread a key-value pair across the variables year and n.
 #' @param years as a variable to read the other functions and transmute the data frame.
 #' @return a data frame by group of year and month, and summarize by count. It will print the head of the database.
 #' @details you need install the library tidyr and conserve the format of the variables.
-#' @importFrom dplyr bind_rows group_by summarize 
+#' @importFrom dplyr bind_rows group_by summarize
 #' @importFrom tidyr spread
 #' @examples fars_summarize_years(2014)
 #' @export
@@ -87,12 +86,11 @@ fars_summarize_years <- function(years) {
 #' @param state.num as a variable that represent a state.
 #' @param year as a variable to tranform it in an integer value.
 #' @return if number of a state is unique and it is contained in the variable STATE of the data
-#' it will make a data frame with this filter, with conditionals to transform NAs in the 
-#' variables LONGITUD AND LATITUDE and print a map with this location. Otherwise print a 
+#' it will make a data frame with this filter, with conditionals to transform NAs in the
+#' variables LONGITUD AND LATITUDE and print a map with this location. Otherwise print a
 #' message "no accidents to plot" and return an invisible object.
 #' @details you need to install the package "map" and specify a number of a state.
 #' @importFrom dplyr filter
-#' @importFrom base message invisible
 #' @importFrom maps map
 #' @importFrom graphics points
 #' @examples fars_map_state(19, 2014)
@@ -101,7 +99,7 @@ fars_map_state <- function(state.num, year) {
   filename <- make_filename(year)
   data <- fars_read(filename)
   state.num <- as.integer(state.num)
-  
+
   if(!(state.num %in% unique(data$STATE)))
     stop("invalid STATE number: ", state.num)
   data.sub <- dplyr::filter(data, STATE == state.num)
