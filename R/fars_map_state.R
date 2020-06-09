@@ -1,10 +1,12 @@
+detach("package:stats", unload = T)
+
 #' @title fars_map_state
 #' @description The function \code{fars_map_state} transform the principal database and add
 #' conditionals for some variables. Plot a map with a specific lat and long.
 #' @param state.num as a variable that represent a state.
 #' @param year as a variable to tranform it in an integer value.
 #' @return if number of a state is unique and it is contained in the variable STATE of the data
-#' it will make a data frame with this filter, with conditionals to transform NAs in the
+#' it will make a data frame with this, with conditionals to transform NAs in the
 #' variables LONGITUD AND LATITUDE and print a map with this location. Otherwise print a
 #' message "no accidents to plot" and return an invisible object.
 #' @details you need to install the package "map" and specify a number of a state.
