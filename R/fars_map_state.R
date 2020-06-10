@@ -8,8 +8,6 @@
 #' variables LONGITUD AND LATITUDE and print a map with this location. Otherwise print a
 #' message "no accidents to plot" and return an invisible object.
 #' @details you need to install the package "map" and specify a number of a state.
-#' @import dplyr
-#' @import maps
 #' @import graphics
 #' @examples fars_map_state(19, 2014)
 #' @export
