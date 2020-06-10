@@ -17,9 +17,15 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-
-library(knitr)
+library(devtools)
 library(ProjectRGGit)
+library(knitr)
+library(readr)
+library(maps)
+library(dplyr)
+library(tidyr)
+library(graphics)
+
 
 ```
 
