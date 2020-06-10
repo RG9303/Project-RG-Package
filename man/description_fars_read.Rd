@@ -17,7 +17,7 @@ fars_read(filename)
 }
 \examples{
 ## read a database
-fars_read(filename = "accident_2013.csv.bz2")
+\dontrun{fars_read(filename = "accident_2013.csv.bz2")}
 
 }
 \keyword{file}
