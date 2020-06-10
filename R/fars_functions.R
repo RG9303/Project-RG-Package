@@ -7,7 +7,7 @@
 #' is diferent to csv, it can not read the file.
 #' @details you need install packages like dplyr and readr before this or it may result in an error
 #' @import dplyr
-#' @importFrom readr read_csv
+#' @import readr
 #' @examples fars_read(filename = accident_2013.csv.bz2)
 #' @export
 fars_read <- function(filename) {
@@ -68,7 +68,7 @@ fars_read_years <- function(years) {
 #' @return a data frame by group of year and month, and summarize by count. It will print the head of the database.
 #' @details you need install the library tidyr and conserve the format of the variables.
 #' @import dplyr
-#' @importFrom tidyr spread
+#' @import tidyr
 #' @examples fars_summarize_years(2014)
 #' @export
 fars_summarize_years <- function(years) {
@@ -91,8 +91,8 @@ fars_summarize_years <- function(years) {
 #' message "no accidents to plot" and return an invisible object.
 #' @details you need to install the package "map" and specify a number of a state.
 #' @import dplyr
-#' @importFrom maps map
-#' @importFrom graphics points
+#' @import maps
+#' @import graphics
 #' @examples fars_map_state(19, 2014)
 #' @export
 fars_map_state <- function(state.num, year) {

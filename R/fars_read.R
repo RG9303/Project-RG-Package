@@ -4,8 +4,8 @@
 #' @return if file exists, this function read the file and return a database as a data frame. If the extension
 #' is diferent to csv, it can not read the file.
 #' @details you need install packages like dplyr and readr before this or it may result in an error
-#' @importFrom readr read_csv
-#' @importFrom dplyr tbl_df
+#' @import readr
+#' @import dplyr
 #' @examples fars_read(filename = accident_2013.csv.bz2)
 #' @export
 fars_read <- function(filename) {

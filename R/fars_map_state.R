@@ -9,8 +9,8 @@
 #' message "no accidents to plot" and return an invisible object.
 #' @details you need to install the package "map" and specify a number of a state.
 #' @import dplyr
-#' @importFrom maps map
-#' @importFrom graphics points
+#' @import maps
+#' @import graphics
 #' @examples fars_map_state(19, 2014)
 #' @export
 fars_map_state <- function(state.num, year) {
