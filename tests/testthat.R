@@ -1,4 +1,6 @@
 library(testthat)
-library(ProjectRGGit)
+# library(ProjectRGGit)
+#
+# test_check("ProjectRGGit")
 
-test_check("ProjectRGGit")
+test_package("ProjectRGGit")
