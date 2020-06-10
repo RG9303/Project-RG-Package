@@ -34,7 +34,7 @@ library(graphics)
 ### Functions description:
 
 1. **fars_read:** Read a csv file when it exists and forwards the argument as a data frame with format csv. For this function you need install packages like dplyr and readr before this or it may result in an error. You can make some examples if you compute it as the next structure: 
-*fars_read(filename = x)*.
+*fars_read(filename = "accident_2013.csv.bz2")*.
 ```{r, include = TRUE}
 fars_read <- function(filename) {
   if(!file.exists(filename))
@@ -47,7 +47,7 @@ fars_read <- function(filename) {
 ```
 
 2. **make_filename:** transform a variable as a integer and print a character vector containing a formatted combination of text and variable value and return a character vector containing a formatted combination of text and variable value. You need to enter a number. An examples is:
-*make_filename(2014)*.
+*make_filename(2013)*.
 ```{r, include = TRUE}
 make_filename <- function(year) {
   year <- as.integer(year)
@@ -56,7 +56,7 @@ make_filename <- function(year) {
 ```
 
 3. **fars_read_years:** save the name of a specific data base according to a year, read the ddatabase and transmute it drops existing variables as year. It will be used when it generate the name of a file with the function \code{fars_read}. if the year is in the set: 2013, 2014 or 2015, it will transmute a database in a new data frame depending on a specific month. Otherwise it will print a warning. An example is:
-*fars_read_years(2014)*.
+*fars_read_years(2013)*.
 ```{r, include = TRUE}
 fars_read_years <- function(years) {
   lapply(years, function(year) {
@@ -74,7 +74,7 @@ fars_read_years <- function(years) {
 ```
 
 4. **fars_summarize_years:** transmute the data frame by group, summarize and spread a key-value pair across the variables year and n. It returns a data frame by group of year and month, and summarize by count. It will print the head of the database. An example is:
-*fars_summarize_years(2014)*.
+*fars_summarize_years(2013)*.
 ```{r, include = TRUE}
 fars_summarize_years <- function(years) {
   dat_list <- fars_read_years(years)
@@ -86,7 +86,7 @@ fars_summarize_years <- function(years) {
 ```
 
 5. **fars_map_state:** transform the principal database and add conditionals for some variables. Plot a map with a specific lat and long. It returns if number of a state is unique and it is contained in the variable STATE of the data it will make a data frame with this filter, with conditionals to transform NAs in the variables LONGITUD AND LATITUDE and print a map with this location. Otherwise print a message "no accidents to plot" and return an invisible object. An example is:
-*fars_map_state(19, 2014)*.
+*fars_map_state(19, 2013)*.
 ```{r, include = TRUE}
 fars_map_state <- function(state.num, year) {
   filename <- make_filename(year)
