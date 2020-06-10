@@ -6,7 +6,7 @@
 Transform the principal database and add conditionals for some variables. Plot a map with a specific lat and long. The variable state is a variable with format numeric.
 }
 \usage{
- fars_map_state(state, year)
+ fars_map_state(state.num, year)
 }
 \arguments{
   \item{state}{a number that represents a code state.}
@@ -18,7 +18,7 @@ Transform the principal database and add conditionals for some variables. Plot a
 }
 \examples{
 ## transmute a database transmuted
-fars_map_state(19, 2014)
+fars_map_state(19, 2013)
 
 }
 \keyword{file}

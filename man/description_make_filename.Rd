@@ -6,7 +6,7 @@
   Transform a variable as a integer and print a character vector containing a formatted combination of text and variable value and return a character vector containing a formatted combination of text and variable value. You need to enter a number.
 }
 \usage{
- make_filename(2014)
+ make_filename(year)
 }
 \arguments{
   \item{year}{a connection or a character string giving the
@@ -17,7 +17,7 @@
 }
 \examples{
 ## ptint a name of a database
-make_filename(2014)
+make_filename(2013)
 
 }
 \keyword{file}

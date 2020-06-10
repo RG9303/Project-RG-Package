@@ -6,7 +6,7 @@
   A dataframe containing county-specific data by state in USA with contour using latitude and longitude of geographic center, and region code. It     includes each U.S. county as of the 2013, 2014 and 2015 census. Read a csv file when it exists and forwards the argument as a data frame with       format csv.
 }
 \usage{
-fars_read(file = filename)
+fars_read(filename)
 }
 \arguments{
   \item{file}{a connection or a character string giving the
@@ -17,7 +17,7 @@ fars_read(file = filename)
 }
 \examples{
 ## read a database
-fars_read(file = "x")
+fars_read(filename = "accident_2013.csv.bz2")
 
 }
 \keyword{file}
