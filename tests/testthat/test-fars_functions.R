@@ -1,30 +1,11 @@
-source("fars_functions.R")
-library(dplyr)
+# source("fars_functions.R")
 
-test_that("fars_read", {
-  roots <- fars_read(filename = "accident_2013.csv.bz2")
-  expect_that( roots, is_a("character") )
+# check csv files are in the package
+
+test_that("test number of columes are 50", {
+
+  file = paste0(system.file("vignettes", package = "ProjectRGGit"), "/",make_filename(2013))
+
+  expect_equal(ncol(fars_read(file)), 50)
+
 })
-
-test_that("make_filename", {
-  roots <- make_filename(year = 2013)
-  expect_that( roots, is_a("character") )
-})
-
-test_that("fars_read_years", {
-  roots <- fars_read_years(years = 2013)
-  expect_that( roots, is_a("list") )
-})
-
-test_that("fars_summarize_years", {
-  roots <- fars_summarize_years(years = 2013)
-  expect_that( roots, is_a("data.frame") )
-})
-
-test_that("fars_map_state", {
-  roots <- fars_map_state(state.num = 19, year = 2013)
-  expect_that( roots, is_a("data.frame") )
-})
-
-
-
