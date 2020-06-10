@@ -4,8 +4,7 @@
 ## from CRAN and then loaded.
 
 ## First specify the packages of interest
-packages = c("devtools", "roxygen2", "readr", "tidyverse", "geomorph",
-             "phytools", "viridis", "dplyr", "tidyr", "maps", "graphics")
+packages = c("devtools", "roxygen2", "readr", "dplyr", "tidyr", "maps", "graphics")
 
 ## Now load or install&load all
 package.check <- lapply(
