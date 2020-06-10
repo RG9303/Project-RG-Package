@@ -3,7 +3,7 @@ library(testthat)
 #
 # test_check("ProjectRGGit")
 
-devtools::test("C:/Users/rubis/Desktop/GitHubR/ProjectRGGit/tests/testthat")
+devtools::test("C:/Users/rubis/Desktop/GitHubR/ProjectRGGit/tests")
 
 test_that("test number of columes are 50", {
 
