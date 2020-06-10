@@ -29,6 +29,6 @@ you need install the library tidyr and conserve the format of the variables.
 you need install the library tidyr and conserve the format of the variables.
 }
 \examples{
-fars_summarize_years(2014)
-fars_summarize_years(2014)
+fars_summarize_years(2013)
+fars_summarize_years(2013)
 }

@@ -34,6 +34,6 @@ you need enter a number as a year contained in the set: 2013, 2014 or 2015 or it
 as a message.
 }
 \examples{
-fars_read_years(2014)
-fars_read_years(2014)
+fars_read_years(2013)
+fars_read_years(2013)
 }

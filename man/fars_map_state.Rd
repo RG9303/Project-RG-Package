@@ -37,6 +37,6 @@ you need to install the package "map" and specify a number of a state.
 you need to install the package "map" and specify a number of a state.
 }
 \examples{
-fars_map_state(19, 2014)
-fars_map_state(19, 2014)
+fars_map_state(19, 2013)
+fars_map_state(19, 2013)
 }

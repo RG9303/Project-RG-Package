@@ -31,6 +31,6 @@ you need install packages like dplyr and readr before this or it may result in a
 you need install packages like dplyr and readr before this or it may result in an error
 }
 \examples{
-fars_read(filename = accident_2013.csv.bz2)
-fars_read(filename = accident_2013.csv.bz2)
+fars_read(filename = "accident_2013.csv.bz2")
+fars_read(filename = "accident_2013.csv.bz2")
 }
