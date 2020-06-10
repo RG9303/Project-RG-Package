@@ -6,7 +6,7 @@
 #' @return if file exists, this function read the file and return a database as a data frame. If the extension
 #' is diferent to csv, it can not read the file.
 #' @details you need install packages like dplyr and readr before this or it may result in an error
-#' @examples fars_read(filename = accident_2013.csv.bz2)
+#' @examples fars_read(filename = "accident_2013.csv.bz2")
 #' @export
 fars_read <- function(filename) {
   if(!file.exists(filename))
@@ -24,7 +24,7 @@ fars_read <- function(filename) {
 #' @param year as a variable to tranform it in an integer value.
 #' @return a character vector containing a formatted combination of text and variable value.
 #' @details you need enter a number or it return a NA.
-#' @examples make_filename(2014)
+#' @examples make_filename(2013)
 #' @export
 make_filename <- function(year) {
   year <- as.integer(year)
@@ -41,7 +41,7 @@ make_filename <- function(year) {
 #' on a specific month. Otherwise it will print a warning.
 #' @details you need enter a number as a year contained in the set: 2013, 2014 or 2015 or it will return a warning
 #' as a message.
-#' @examples fars_read_years(2014)
+#' @examples fars_read_years(2013)
 #' @export
 fars_read_years <- function(years) {
   lapply(years, function(year) {
@@ -64,7 +64,7 @@ fars_read_years <- function(years) {
 #' @param years as a variable to read the other functions and transmute the data frame.
 #' @return a data frame by group of year and month, and summarize by count. It will print the head of the database.
 #' @details you need install the library tidyr and conserve the format of the variables.
-#' @examples fars_summarize_years(2014)
+#' @examples fars_summarize_years(2013)
 #' @export
 fars_summarize_years <- function(years) {
   dat_list <- fars_read_years(years)
@@ -86,7 +86,7 @@ fars_summarize_years <- function(years) {
 #' message "no accidents to plot" and return an invisible object.
 #' @details you need to install the package "map" and specify a number of a state.
 #' @import graphics
-#' @examples fars_map_state(19, 2014)
+#' @examples fars_map_state(19, 2013)
 #' @export
 fars_map_state <- function(state.num, year) {
   filename <- make_filename(year)

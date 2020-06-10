@@ -8,7 +8,7 @@
 #' on a specific month. Otherwise it will print a warning.
 #' @details you need enter a number as a year contained in the set: 2013, 2014 or 2015 or it will return a warning
 #' as a message.
-#' @examples fars_read_years(2014)
+#' @examples fars_read_years(2013)
 #' @export
 fars_read_years <- function(years) {
   lapply(years, function(year) {
