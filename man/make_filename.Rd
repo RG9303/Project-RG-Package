@@ -28,7 +28,13 @@ you need enter a number or it return a NA.
 
 you need enter a number or it return a NA.
 }
+\note{
+This function will only create a filename, to read in the file, use \code{fars_read}.
+}
 \examples{
 make_filename(2013)
 make_filename(2013)
+}
+\seealso{
+\code{\link{fars_read}}
 }

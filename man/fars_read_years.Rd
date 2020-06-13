@@ -34,6 +34,11 @@ you need enter a number as a year contained in the set: 2013, 2014 or 2015 or it
 as a message.
 }
 \examples{
+\dontrun{fars_read_years(2013)}
 fars_read_years(2013)
-fars_read_years(2013)
+}
+\seealso{
+\code{\link{fars_read}}
+
+\code{\link{make_filename}}
 }

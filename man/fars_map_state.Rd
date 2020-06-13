@@ -37,6 +37,13 @@ you need to install the package "map" and specify a number of a state.
 you need to install the package "map" and specify a number of a state.
 }
 \examples{
+\dontrun{fars_map_state(19, 2013)}
 fars_map_state(19, 2013)
-fars_map_state(19, 2013)
+}
+\seealso{
+\code{\link{fars_summarize_years}}
+
+\code{\link{make_filename}}
+
+\code{\link{fars_read}}
 }

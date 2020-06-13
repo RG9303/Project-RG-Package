@@ -30,7 +30,13 @@ you need install packages like dplyr and readr before this or it may result in a
 
 you need install packages like dplyr and readr before this or it may result in an error
 }
+\note{
+To generate a file name, use \code{make_filename}.
+}
 \examples{
+\dontrun{fars_read("accident_2013.csv.bz2")}
 \dontrun{fars_read(filename = "accident_2013.csv.bz2")}
-\dontrun{fars_read(filename = "accident_2013.csv.bz2")}
+}
+\seealso{
+\code{\link{make_filename}}
 }

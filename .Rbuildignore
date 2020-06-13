@@ -1,5 +1,2 @@
-^ProjectRGGit\.Rproj$
+^.*\.Rproj$
 ^\.Rproj\.user$
-^README\.Rmd$
-^data-raw$
-^\.travis\.yml$

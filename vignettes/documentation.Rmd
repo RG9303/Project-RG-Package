@@ -1,7 +1,7 @@
 ---
 title: "Documentation how to create a map R"
 author: "Rubi Gutierrez"
-date: "2020-06-08"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Documentation how to create a map R}
@@ -34,7 +34,7 @@ library(graphics)
 ### Functions description:
 
 1. **fars_read:** Read a csv file when it exists and forwards the argument as a data frame with format csv. For this function you need install packages like dplyr and readr before this or it may result in an error. You can make some examples if you compute it as the next structure: 
-*fars_read(filename = "accident_2013.csv.bz2")*.
+*fars_read("accident_2013.csv.bz2")*.
 ```{r, include = TRUE}
 fars_read <- function(filename) {
   if(!file.exists(filename))
